@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-export default function HomePage({ navigation }) {
+export default function ListPage({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList

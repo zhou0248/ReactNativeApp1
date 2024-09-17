@@ -5,13 +5,18 @@ import {
   View,
   Image,
   ScrollView,
+  Button,
 } from "react-native";
 
-export default function HomePage() {
+export default function AboutPage({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
+          <Button
+            title="Home Page"
+            onPress={() => navigation.navigate("Home")}
+          ></Button>
           <Image
             source={require("../assets/dog.png")}
             style={{
