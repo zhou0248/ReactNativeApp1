@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ListPage from "./pages/ListPage";
@@ -13,8 +12,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="About" component={AboutPage} />
-        <Stack.Screen name="List" component={ListPage} />
+        <Stack.Screen name="Cockatoo" component={AboutPage} />
+        <Stack.Screen name="More Parrots" component={ListPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -26,6 +25,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    // paddingTop: 48,
   },
 });
