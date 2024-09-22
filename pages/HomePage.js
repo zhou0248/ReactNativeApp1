@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 export default function HomePage({ navigation }) {
-  const backgroundIMG = require("../assets/cockatiel.jpg");
+  const backgroundIMG = require("../assets/cockatoo2.jpg");
   return (
     <SafeAreaView style={styles.container}>
       <View>

@@ -13,15 +13,21 @@ import SegmentedControl from "@react-native-community/segmented-control";
 
 export default function ListPage({ navigation }) {
   const [parrotIndex, setParrotIndex] = React.useState(0);
+
   return (
     <SafeAreaView>
       <View styles={styles.container}>
         <SegmentedControl
           values={["African Grey", "Cockatiel", "Parakeet", "Sun Conure"]}
           selectedIndex={parrotIndex}
-          onChange={(event) =>
-            setParrotIndex(event.nativeEvent.selectedSegmentIndex)
-          }
+          onChange={(event) => {
+            setParrotIndex(event.nativeEvent.selectedSegmentIndex);
+          }}
+          backgroundColor={"#fff6f6"}
+        />
+        <Image
+          source={images[parrotIndex]}
+          style={{ width: 400, height: 400 }}
         />
         <FlatList
           style={styles.itemContainer}
@@ -43,20 +49,24 @@ export default function ListPage({ navigation }) {
     </SafeAreaView>
   );
 }
+const images = [
+  require("../assets/africangrey.jpg"),
+  require("../assets/cockatiel.jpg"),
+  require("../assets/parakeet.jpg"),
+  require("../assets/sunconure.jpg"),
+];
 
 const data = [
   {
-    id: "1",
+    id: "0",
     title: "African Grey",
-    image: require("../assets/african_grey.jpg"),
   },
   {
-    id: "2",
+    id: "1",
     title: "Cockatiel",
-    image: require("../assets/cockatiel.jpg"),
   },
-  { id: "3", title: "Parakeet", image: require("../assets/parakeet.jpg") },
-  { id: "4", title: "Sun Conure", image: require("../assets/conure.jpg") },
+  { id: "2", title: "Parakeet" },
+  { id: "3", title: "Sun Conure" },
 ];
 
 const styles = StyleSheet.create({
