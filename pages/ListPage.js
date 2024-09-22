@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 import {
-  Button,
   FlatList,
   SafeAreaView,
   StyleSheet,
@@ -9,22 +9,37 @@ import {
   Image,
   Pressable,
 } from "react-native";
+import SegmentedControl from "@react-native-community/segmented-control";
 
 export default function ListPage({ navigation }) {
+  const [parrotIndex, setParrotIndex] = React.useState(0);
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Text style={styles.item}>{item.title}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-      />
-      <Pressable style={styles.btn} onPress={() => navigation.navigate("Home")}>
-        <Text style={styles.text}> Home Page</Text>
-      </Pressable>
+    <SafeAreaView>
+      <View styles={styles.container}>
+        <SegmentedControl
+          values={["African Grey", "Cockatiel", "Parakeet", "Sun Conure"]}
+          selectedIndex={parrotIndex}
+          onChange={(event) =>
+            setParrotIndex(event.nativeEvent.selectedSegmentIndex)
+          }
+        />
+        <FlatList
+          style={styles.itemContainer}
+          data={data}
+          renderItem={({ item }) => (
+            <View>
+              <Text style={styles.item}>{item.title}</Text>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+        />
+        <Pressable
+          style={styles.btn}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={styles.text}> Home Page</Text>
+        </Pressable>
+      </View>
     </SafeAreaView>
   );
 }
@@ -40,19 +55,21 @@ const data = [
     title: "Cockatiel",
     image: require("../assets/cockatiel.jpg"),
   },
-  { id: "3", title: "Macaw", image: require("../assets/macaw.jpg") },
-  { id: "4", title: "Parakeet", image: require("../assets/parakeet.jpg") },
-  { id: "5", title: "Sun Conure", image: require("../assets/conure.jpg") },
+  { id: "3", title: "Parakeet", image: require("../assets/parakeet.jpg") },
+  { id: "4", title: "Sun Conure", image: require("../assets/conure.jpg") },
 ];
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
+    backgroundColor: "#fff3f3",
+    justifyContent: "flex-start",
+  },
+  itemContainer: {
+    marginTop: 15,
   },
   item: {
-    padding: 16,
+    padding: 20,
     fontSize: 20,
     backgroundColor: "#ffeeee",
     color: "#190808",
