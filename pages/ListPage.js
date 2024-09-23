@@ -16,8 +16,8 @@ export default function ListPage({ navigation }) {
 
   return (
     <SafeAreaView>
-      <View styles={styles.container}>
-        <View styles={styles.segmentControl}>
+      <View>
+        <View>
           <SegmentedControl
             values={["African Grey", "Cockatiel", "Parakeet", "Sun Conure"]}
             selectedIndex={parrotIndex}
@@ -34,10 +34,12 @@ export default function ListPage({ navigation }) {
               borderRadius: 20,
               alignSelf: "center",
               marginTop: 20,
+              borderColor: "#665252",
+              borderWidth: 3,
             }}
           />
         </View>
-        <View styles={styles.listItems}>
+        <View>
           <FlatList
             data={data}
             renderItem={({ item }) => (
@@ -48,7 +50,7 @@ export default function ListPage({ navigation }) {
             keyExtractor={(item) => item.id}
           />
         </View>
-        <View styles={styles.btnGroup}>
+        <View style={styles.btnGroup}>
           <Pressable
             style={styles.btn}
             onPress={() => navigation.navigate("Home")}
@@ -88,16 +90,6 @@ const data = [
 ];
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff3f3",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  listItems: {
-    marginTop: 15,
-    maxHeight: 250,
-  },
   item: {
     padding: 15,
     fontSize: 20,
@@ -108,8 +100,9 @@ const styles = StyleSheet.create({
   btnGroup: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    margin: 20,
   },
   btn: {
     backgroundColor: "#ffeeee",
@@ -118,12 +111,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 10,
     width: 150,
-    textAlign: "center",
-    alignSelf: "center",
-    marginBottom: 10,
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#190808",
+    textAlign: "center",
   },
 });
