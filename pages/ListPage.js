@@ -23,7 +23,7 @@ export default function ListPage({ navigation }) {
           onChange={(event) => {
             setParrotIndex(event.nativeEvent.selectedSegmentIndex);
           }}
-          backgroundColor={"#fff6f6"}
+          backgroundColor={"#ffe1e1"}
         />
         <Image
           source={images[parrotIndex]}
