@@ -44,6 +44,7 @@ export default function ListPage({ navigation }) {
             data={data}
             renderItem={({ item }) => (
               <View style={styles.item}>
+                <Image style={styles.thumbnail} source={item.img} />
                 <Text style={styles.itemText}>{item.title}</Text>
               </View>
             )}
@@ -73,36 +74,50 @@ const images = [
   require("../assets/cockatiel.jpg"),
   require("../assets/parakeet.jpg"),
   require("../assets/sunconure.jpg"),
+  require("../assets/macaw.jpg"),
 ];
 
 const data = [
   {
     id: "0",
     title: "African Grey",
+    img: images[0],
   },
   {
     id: "1",
     title: "Cockatiel",
+    img: images[1],
   },
-  { id: "2", title: "Parakeet" },
-  { id: "3", title: "Sun Conure" },
-  { id: "4", title: "Macaw" },
+  { id: "2", title: "Parakeet", img: images[2] },
+  { id: "3", title: "Sun Conure", img: images[3] },
+  { id: "4", title: "Macaw", img: images[4] },
 ];
 
 const styles = StyleSheet.create({
   itemList: {
     marginTop: 20,
+    maxHeight: 300,
   },
   item: {
-    padding: 15,
+    padding: 10,
     backgroundColor: "#ffeeee",
     color: "#190808",
     margin: 5,
     borderBottomColor: "#994444",
     borderBottomWidth: 2,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   itemText: {
-    fontSize: 20,
+    fontSize: 18,
+  },
+  thumbnail: {
+    width: 50,
+    height: 50,
+    borderRadius: 3,
+    alignSelf: "flex-end",
   },
   btnGroup: {
     display: "flex",
