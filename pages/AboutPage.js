@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   text: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 10,
   },
 });

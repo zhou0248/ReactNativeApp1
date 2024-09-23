@@ -39,12 +39,12 @@ export default function ListPage({ navigation }) {
             }}
           />
         </View>
-        <View>
+        <View style={styles.itemList}>
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <View>
-                <Text style={styles.item}>{item.title}</Text>
+              <View style={styles.item}>
+                <Text style={styles.itemText}>{item.title}</Text>
               </View>
             )}
             keyExtractor={(item) => item.id}
@@ -86,16 +86,23 @@ const data = [
   },
   { id: "2", title: "Parakeet" },
   { id: "3", title: "Sun Conure" },
-  { id: "4", title: "macaw" },
+  { id: "4", title: "Macaw" },
 ];
 
 const styles = StyleSheet.create({
+  itemList: {
+    marginTop: 20,
+  },
   item: {
     padding: 15,
-    fontSize: 20,
     backgroundColor: "#ffeeee",
     color: "#190808",
     margin: 5,
+    borderBottomColor: "#994444",
+    borderBottomWidth: 2,
+  },
+  itemText: {
+    fontSize: 20,
   },
   btnGroup: {
     display: "flex",
